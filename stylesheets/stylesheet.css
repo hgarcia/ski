@@ -84,7 +84,7 @@ input, select {
     height: 3em;
     background-color: #111;
 }
-.main-menu ul li {
+.menu-items {
     color: #DEDEDE;
     float: left;
     height: 3em;
@@ -93,6 +93,10 @@ input, select {
     text-transform: uppercase;
     width: 8em;
     cursor: pointer;
+}
+.menu-items a {
+    color: #dedede;
+    text-decoration: none;
 }
 .menu-videos {
     background-color: rgb(59, 101, 175);
