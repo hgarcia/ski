@@ -107,6 +107,9 @@ input, select {
 .menu-links {
     background-color: rgb(167, 36, 36);
 }
+.menu-home {
+    background-color: rgb(26, 97, 97);
+}
 .main-menu ul li:hover {
     background-color: #404040;
 }
