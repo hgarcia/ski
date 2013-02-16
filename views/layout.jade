@@ -1,0 +1,28 @@
+doctype 5
+html
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='chrome=1')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name='keywords', content='ski, snowboard, videos, extreme, snow, alpine, park, bluebird, powder')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/stylesheet.css')
+  body.body-style
+    header.main-header
+      div.container
+        a.no-decoration(href='/')
+          h1= "Dynamic Ski"
+    div.container.center-content
+      nav.main-menu
+        ul
+          li.menu-items.menu-videos(title='Videos')
+            a.icon-play-alt(href='/videos')
+          li.menu-items.menu-pictures(title='Pictures')
+            a.icon-camera(href='/pictures')
+          li.menu-items.menu-links(title='Links')
+            a.icon-link(href='/links')
+          li.menu-items.menu-music(title='Music')
+            a.icon-headphones(href='/music')
+      section.main-body
+        block content
+    script(src="/javascripts/videos.js")
