@@ -44,6 +44,25 @@ q:before, q:after {
     content: '';
     content: none;
 }
+@font-face {
+    font-family: 'icomoon';
+    src:url('icomoon.eot');
+    src:url('icomoon.eot?#iefix') format('embedded-opentype'),
+        url('icomoon.woff') format('woff'),
+        url('icomoon.ttf') format('truetype'),
+        url('icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Bk2am';
+    src: url('blackout_two_am-webfont.eot');
+    src: url('blackout_two_am-webfont.woff') format('woff'),
+        url('blackout_two_am-webfont.ttf') format('truetype'),
+        url('blackout_two_am-webfont.svg#webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 a {
     margin:0;
     padding:0;
@@ -64,39 +83,46 @@ input, select {
     vertical-align:middle;
 }
 .body-style {
-    background-color: #202020;
+    background-image: url('../images/bg-b.png');
+}
+.center-content {
 }
 .container {
     margin: 0 auto;
     width: 80%
 }
 .main-header {
-    background-color: #303030;
+    background-image: url('../images/header_bg.gif');
     height: 12em;
+    box-shadow: 0 0 6px rgb(181, 223, 162);
 }
 .main-header h1 {
-    color: rgb(222, 222, 222);
-    line-height: 1.5em;
-    font-size: 9em;
-    margin-left: 0.3em;
+    font-size: 5em;
+    text-shadow: -2px -2px 2px #000, 2px 2px 2px #fff;
+    color: #fff;
+    opacity: 0.1;
+    font-family: 'Bk2AM';
+    padding-top: 0.15em;
 }
 .main-menu {
-    height: 3em;
-    background-color: #111;
+    height: 5em;
 }
 .menu-items {
     color: #DEDEDE;
     float: left;
-    height: 3em;
-    line-height: 3.3em;
+    height: 3.5em;
+    line-height: 4em;
     text-align: center;
     text-transform: uppercase;
-    width: 8em;
+    width: 6em;
     cursor: pointer;
+    border-radius: 3em;
+    margin: 0.7em;
 }
 .menu-items a {
     color: #dedede;
     text-decoration: none;
+    font-size: 2em;
 }
 .menu-videos {
     background-color: rgb(59, 101, 175);
@@ -107,19 +133,29 @@ input, select {
 .menu-links {
     background-color: rgb(167, 36, 36);
 }
-.menu-home {
+.menu-music {
     background-color: rgb(26, 97, 97);
 }
+.menu-items.selected a{
+    color: #080808;
+    text-shadow: 0 0 10px #dedede;
+}
+
 .main-menu ul li:hover {
     background-color: #404040;
 }
 .main-body {
     background-color: #dedede;
     height: 750px;
+    box-shadow: 0 0 25px;
+}
+#player {
+    background-color: #000;
+    text-align: center;
 }
 .videos-list {
     overflow-x: auto;
-    height: 130px;
+    height: 150px;
     margin: 10px 10px 0 10px;
 }
 #streamer ul li {
@@ -145,4 +181,36 @@ input, select {
 #streamer ul li span {
     font-size: 0.8em;
     padding-left: 0.3em;
+}
+.icon-play-alt:before, .icon-camera:before, .icon-link:before, .icon-rss-alt:before, .icon-cog:before, .icon-document-stroke:before, .icon-tumblr:before, .icon-headphones:before {
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+.icon-play-alt:before {
+    content: "\e000";
+}
+.icon-camera:before {
+    content: "\e001";
+}
+.icon-link:before {
+    content: "\e003";
+}
+.icon-rss-alt:before {
+    content: "\e002";
+}
+.icon-cog:before {
+    content: "\e004";
+}
+.icon-document-stroke:before {
+    content: "\e005";
+}
+.icon-tumblr:before {
+    content: "\e006";
+}
+.icon-headphones:before {
+    content: "\e007";
 }
