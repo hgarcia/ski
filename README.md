@@ -1,4 +1,4 @@
 ski
 ===
 
-ski site
+Dynamic ski site
