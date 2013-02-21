@@ -5,7 +5,7 @@ exports.setup = function (req, res) {
     if (!user) {
       res.render("setup", {title: "Setup admin user"});
     } else {
-      res.redirect('/');
+      res.redirect('/admin');
     }
   });
 };
