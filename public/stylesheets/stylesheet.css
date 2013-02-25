@@ -1,48 +1,5 @@
-/*
-html5doctor.com Reset Stylesheet
-v1.6.1
-Last Updated: 2010-09-17
-Author: Richard Clark - http://richclarkdesign.com
-Twitter: @rich_clark
-*/
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code,
-del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
-}
-
-body {
-    line-height:1;
-}
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section {
-    display:block;
-}
 nav ul {
     list-style:none;
-}
-blockquote, q {
-    quotes:none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
 }
 @font-face {
     font-family: 'icomoon';
@@ -63,25 +20,6 @@ q:before, q:after {
     font-weight: normal;
     font-style: normal;
 }
-a {
-    margin:0;
-    padding:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
-}
-/* change border colour to suit your needs */
-hr {
-    display:block;
-    height:1px;
-    border:0;
-    border-top:1px solid #000;
-    margin:1em 0;
-    padding:0;
-}
-input, select {
-    vertical-align:middle;
-}
 .body-style {
     background-image: url('../images/bg-b.png');
 }
@@ -96,9 +34,10 @@ input, select {
     width: 75px;
 }
 .main-header {
-    background-image: url('../images/header_bg.gif');
+    background-image: url("../images/header_bg.gif");
+    box-shadow: 0 0 6px #B5DFA2;
     height: 12em;
-    box-shadow: 0 0 6px rgb(181, 223, 162);
+    position: relative;
 }
 .main-header h1 {
     font-size: 5em;
@@ -107,6 +46,8 @@ input, select {
     opacity: 0.1;
     font-family: 'Bk2AM';
     padding-top: 0.15em;
+    line-height: 1em;
+    margin-top: 0;
 }
 .main-menu {
     height: 5em;
@@ -115,7 +56,7 @@ input, select {
     color: #DEDEDE;
     float: left;
     height: 3.5em;
-    line-height: 4.05em;
+    line-height: 3.8em;
     text-align: center;
     text-transform: uppercase;
     width: 6em;
@@ -139,6 +80,9 @@ input, select {
 }
 .menu-music {
     background-color: rgb(26, 97, 97);
+}
+.menu-users {
+    background-color: #990;
 }
 .menu-items.selected a{
     color: #080808;
@@ -189,7 +133,8 @@ input, select {
     font-size: 0.8em;
     padding-left: 0.3em;
 }
-.icon-play-alt:before, .icon-camera:before, .icon-link:before, .icon-rss-alt:before, .icon-cog:before, .icon-document-stroke:before, .icon-tumblr:before, .icon-headphones:before {
+
+.icon-play-alt:before, .icon-camera:before, .icon-link:before, .icon-rss-alt:before, .icon-cog:before, .icon-document-stroke:before, .icon-headphones:before, .icon-user:before, .icon-twitter:before, .icon-google-plus:before, .icon-feed:before, .icon-vimeo:before, .icon-flickr:before, .icon-picassa:before, .icon-dribbble:before, .icon-wordpress:before, .icon-pinterest:before, .icon-cart:before {
     font-family: 'icomoon';
     speak: none;
     font-style: normal;
@@ -215,9 +160,39 @@ input, select {
 .icon-document-stroke:before {
     content: "\e005";
 }
-.icon-tumblr:before {
-    content: "\e006";
-}
 .icon-headphones:before {
     content: "\e007";
+}
+.icon-user:before {
+    content: "\e008";
+}
+.icon-twitter:before {
+    content: "\e006";
+}
+.icon-google-plus:before {
+    content: "\e009";
+}
+.icon-feed:before {
+    content: "\e00a";
+}
+.icon-vimeo:before {
+    content: "\e00b";
+}
+.icon-flickr:before {
+    content: "\e00c";
+}
+.icon-picassa:before {
+    content: "\e00d";
+}
+.icon-dribbble:before {
+    content: "\e00e";
+}
+.icon-wordpress:before {
+    content: "\e00f";
+}
+.icon-pinterest:before {
+    content: "\e010";
+}
+.icon-cart:before {
+    content: "\e011";
 }
