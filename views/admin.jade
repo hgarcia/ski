@@ -1,8 +1,9 @@
 extends adminlayout
 
 block content
-  form(method="post")
-    h3="Create an admin"
+  div.row="&nbsp;"
+  form.five.columns.centered.pale.restore-block(method="post")
+    h3="Log in"
     p
       label(for="email", class="form-label")="Email:"
       input(type="email", name="email")
@@ -10,4 +11,4 @@ block content
       label(for="password", class="form-label")="Password:"
       input(type="password", name="password")
     p
-      input(type="submit", name="save", value="Save")
+      input.button(type="submit", name="login", value="Log In")

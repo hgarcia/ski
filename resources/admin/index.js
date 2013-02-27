@@ -1,7 +1,8 @@
 var usersModel = require("../../models/users");
+
 module.exports = function (app) {
   app.get("/admin", admin);
-  app.get("/admin/login", admin);
+  app.get("/admin/login", login);
   app.post("/admin/login",
     app.passport.authenticate('local', { failureRedirect: '/admin/login', failureFlash: true }),
     function(req, res) {
@@ -10,6 +11,10 @@ module.exports = function (app) {
   app.get("/setup", setup);
   app.post("/setup", save);
 };
+
+function login(req, res) {
+  res.render("admin", {title: "Admin area"});
+}
 
 function admin(req, res) {
   res.render("admin", {title: "Admin area"});
