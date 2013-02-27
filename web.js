@@ -7,34 +7,16 @@ var path = require('path');
 var users = require('./models/users').init(db);
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-passport.use(new LocalStrategy(users.passport));
-//   function (username, password, done) {
-//     User.findOne({ username: username }, function (err, user) {
-//       if (err) { return done(err); }
-//       if (!user) {
-//         return done(null, false, { message: 'Incorrect username.' });
-//       }
-//       if (!user.validPassword(password)) {
-//         return done(null, false, { message: 'Incorrect password.' });
-//       }
-//       return done(null, user);
-//     });
-//   }
-// ));
+passport.use(new LocalStrategy(users.getFields(), users.passport));
 passport.serializeUser(function (user, done) {
-  done(null, user.id);
+  done(null, user._id);
 });
-
 passport.deserializeUser(function (id, done) {
   users.findById(id, function (err, user) {
     done(err, user);
   });
 });
-
 var app = express();
-app.passport = passport;
-app.db = db;
-app.config = config;
 
 app.configure(function(){
   app.set('port', process.env.PORT || 5000);
@@ -52,6 +34,10 @@ app.configure(function(){
   app.use(require('stylus').middleware(__dirname + '/public'));
   app.use(express.static(path.join(__dirname, 'public')));
 });
+
+app.passport = passport;
+app.db = db;
+app.config = config;
 
 app.configure('development', function(){
   app.use(express.errorHandler());

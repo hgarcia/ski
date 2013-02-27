@@ -1,19 +1,19 @@
 var usersModel = require("../../models/users");
 
 module.exports = function (app) {
-  app.get("/admin", admin);
+  app.get("/admin",
+    app.passport.authenticate('local', { failureRedirect: '/admin/login' }), admin);
   app.get("/admin/login", login);
   app.post("/admin/login",
-    app.passport.authenticate('local', { failureRedirect: '/admin/login', failureFlash: true }),
-    function(req, res) {
-      res.redirect('/admin');
-    });
+    app.passport.authenticate('local'),
+      admin
+    );
   app.get("/setup", setup);
   app.post("/setup", save);
 };
 
 function login(req, res) {
-  res.render("admin", {title: "Admin area"});
+  res.render("login", {title: "Admin area"});
 }
 
 function admin(req, res) {
@@ -25,7 +25,7 @@ function setup(req, res) {
   var users = db.collection('users');
   users.findOne({role: "uber-admin"}, function (err, user) {
     if (!user) {
-      res.render("setup", {title: "Setup admin user"});
+      res.render("setup", {title: "Setup admin user", err: ""});
     } else {
       res.redirect('/admin');
     }
@@ -41,13 +41,12 @@ function save(req, res) {
   };
   users.create(dto, sendResponse);
   function sendResponse(err, result) {
-
-  };
-  users.save(admin, {safe: true}, function (err, result) {
+    console.log(err);
+    console.log(result);
     if (err) {
-      res.send(err, 500);
-    } else {
-      res.send(204);
+      res.render("setup", {title: "Setup admin user", err: err.message});
+    } else if (result) {
+      res.redirect("/admin");
     }
-  });
+  };
 }
