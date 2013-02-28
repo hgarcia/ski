@@ -110,9 +110,15 @@ nav ul {
     background-color: #efefef;
     border-radius: 10px;
 }
-.record th, .record td {
-    border-right: 1px solid #DDDDDD;
+.record th {
     font-size: 18px;
+}
+.record th.actionable {
+    font-size: 14px;
+    color: #333;
+}
+.record th, .record td {
+    border-right: 1px solid #DDD;
     padding-bottom: 1px;
     padding-top: 4px;
 }
