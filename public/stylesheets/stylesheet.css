@@ -20,6 +20,9 @@ nav ul {
     font-weight: normal;
     font-style: normal;
 }
+.actionable {
+    cursor: pointer;
+}
 .body-style {
     background-image: url('../images/bg-b.png');
 }
@@ -28,6 +31,9 @@ nav ul {
 .container {
     margin: 0 auto;
     width: 80%
+}
+.float-right {
+    float: right;
 }
 .form-label {
     display: inline-block;
@@ -104,6 +110,15 @@ nav ul {
     background-color: #efefef;
     border-radius: 10px;
 }
+.record th, .record td {
+    border-right: 1px solid #DDDDDD;
+    font-size: 18px;
+    padding-bottom: 1px;
+    padding-top: 4px;
+}
+.record th:last-child, .record td:last-child {
+    border-right: medium none;
+}
 .restore-block {
     padding-bottom: 1px;
     padding-top: 1px;
@@ -142,7 +157,7 @@ nav ul {
     padding-left: 0.3em;
 }
 
-.icon-play-alt:before, .icon-camera:before, .icon-link:before, .icon-rss-alt:before, .icon-cog:before, .icon-document-stroke:before, .icon-headphones:before, .icon-user:before, .icon-twitter:before, .icon-google-plus:before, .icon-feed:before, .icon-vimeo:before, .icon-flickr:before, .icon-picassa:before, .icon-dribbble:before, .icon-wordpress:before, .icon-pinterest:before, .icon-cart:before {
+.icon-play-alt:before, .icon-camera:before, .icon-link:before, .icon-rss-alt:before, .icon-cog:before, .icon-document-stroke:before, .icon-headphones:before, .icon-user:before, .icon-twitter:before, .icon-google-plus:before, .icon-feed:before, .icon-vimeo:before, .icon-flickr:before, .icon-picassa:before, .icon-dribbble:before, .icon-wordpress:before, .icon-pinterest:before, .icon-cart:before, .icon-plus-alt:before, .icon-remove:before, .icon-enter:before, .icon-exit:before, .icon-minus-alt:before, .icon-pen:before, .icon-compass:before {
     font-family: 'icomoon';
     speak: none;
     font-style: normal;
@@ -203,4 +218,25 @@ nav ul {
 }
 .icon-cart:before {
     content: "\e011";
+}
+.icon-plus-alt:before {
+    content: "\e012";
+}
+.icon-remove:before {
+    content: "\e013";
+}
+.icon-enter:before {
+    content: "\e014";
+}
+.icon-exit:before {
+    content: "\e015";
+}
+.icon-minus-alt:before {
+    content: "\e016";
+}
+.icon-pen:before {
+    content: "\e017";
+}
+.icon-compass:before {
+    content: "\e018";
 }

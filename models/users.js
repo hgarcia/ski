@@ -32,12 +32,6 @@ function isValidPasswordString(password) {
 exports.init = function (db) {
   var users = db.collection('users');
   return {
-    getFields: function () {
-      return {
-        usernameField: 'email',
-        passwordField: 'password'
-      };
-    },
     create: function (dto, cb) {
       if (!isValidEmail(dto.email) || !isValidPasswordString(dto.password)) {
         return cb(new Error("Need both a valid email and a password of at least 7 characters"), false);
@@ -52,7 +46,7 @@ exports.init = function (db) {
       }
       users.save(user, {safe: true}, cb);
     },
-    passport: function (username, password, cb) {
+    authenticate: function (username, password, cb) {
       users.findOne({email: username }, validate);
       function validate(err, user) {
         if (err) { return cb(err); }
