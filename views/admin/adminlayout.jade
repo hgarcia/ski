@@ -12,7 +12,7 @@ html
     header.main-header
       div.nine.columns.centered
         a.no-decoration(href='/')
-          h1= "Dynamic Ski - Admin"
+          h1= title
     div.nine.columns.centered
       nav.main-menu
         ul
@@ -26,6 +26,12 @@ html
             a.icon-headphones(href='/admin/music')
           li.menu-items.menu-users(title='Users')
             a.icon-user(href='/admin/users')
+          if user == null
+            li.menu-items.menu-login.float-right(title='Log In')
+              a.icon-enter(href='/admin/login')
+          else
+            li.menu-items.menu-login.float-right(title='Log Out')
+              a.icon-exit(href='/admin/logout')
       section.main-body
         block content
     script(src="/javascripts/videos.js")

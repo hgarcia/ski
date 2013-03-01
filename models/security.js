@@ -34,6 +34,11 @@ exports.init = function (users, config) {
           next();
         }
       }
+    },
+    logout: function (req, res) {
+      req.session.destroy(function () {
+          res.redirect(config.loginUrl);
+      });
     }
   };
 };

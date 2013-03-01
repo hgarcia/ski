@@ -6,6 +6,7 @@
     "start": "node web"
   },
   "dependencies": {
+    "curling": "0.3.0",
     "express": "3.1.0",
     "jade": "0.28.1",
     "stylus": "0.32.0",

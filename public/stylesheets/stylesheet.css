@@ -32,9 +32,6 @@ nav ul {
     margin: 0 auto;
     width: 80%
 }
-.float-right {
-    float: right;
-}
 .form-label {
     display: inline-block;
     width: 75px;
@@ -91,6 +88,9 @@ nav ul {
 .menu-users {
     background-color: #990;
 }
+.menu-login {
+    background-color: #168;
+}
 .menu-items.selected a{
     color: #080808;
     text-shadow: 0 0 10px #dedede;
@@ -113,9 +113,8 @@ nav ul {
 .record th {
     font-size: 18px;
 }
-.record th.actionable {
+.record th a {
     font-size: 14px;
-    color: #333;
 }
 .record th, .record td {
     border-right: 1px solid #DDD;
@@ -161,6 +160,10 @@ nav ul {
 #streamer ul li span {
     font-size: 0.8em;
     padding-left: 0.3em;
+}
+
+.float-right {
+    float: right;
 }
 
 .icon-play-alt:before, .icon-camera:before, .icon-link:before, .icon-rss-alt:before, .icon-cog:before, .icon-document-stroke:before, .icon-headphones:before, .icon-user:before, .icon-twitter:before, .icon-google-plus:before, .icon-feed:before, .icon-vimeo:before, .icon-flickr:before, .icon-picassa:before, .icon-dribbble:before, .icon-wordpress:before, .icon-pinterest:before, .icon-cart:before, .icon-plus-alt:before, .icon-remove:before, .icon-enter:before, .icon-exit:before, .icon-minus-alt:before, .icon-pen:before, .icon-compass:before {

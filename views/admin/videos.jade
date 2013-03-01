@@ -6,16 +6,21 @@ block content
     h3=title
     table.twelve.record
       tr
+        th.four="Title"
         th.two="Url"
         th.two="Provider"
-        th.four="Title"
         th.three="Author"
-        th.one.icon-plus-alt.actionable
-      tr
-        td="098900"
-        td="Vimeo"
-        td="Jumping hide"
-        td="Hernan Garcia"
-        td
-          span.icon-pen.actionable
-          span.icon-minus-alt.float-right.actionable
+        th.one
+          a.icon-plus-alt(href="/admin/videos/0")
+      for video in videos
+        tr
+          td= video.title
+          td
+            a(href= video.video_url, target="prev_link")= video.video_url
+          td
+            a(href= video.provider_url, target="prev_link")= video.provider_name
+          td
+            a(href= video.author_url, target="prev_link")= video.author_name
+          td
+            a.icon-pen(href="/admin/videos/" + video._id)
+            a.icon-minus-alt.float-right(href="#", id= video._id)
