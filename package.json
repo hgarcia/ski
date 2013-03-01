@@ -6,8 +6,8 @@
     "start": "node web"
   },
   "engines" : {
-    "node" : "0.8.16",
-    "npm": "1.1.69"
+    "node" : "0.8.21",
+    "npm": "1.2.11"
   },
   "dependencies": {
     "curling": "0.3.0",
