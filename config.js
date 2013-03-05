@@ -8,8 +8,8 @@ exports.CONFIG = {
       },
       uris: [
           '127.0.0.1:27017'
-      ]
-      // url: (process.env.MONGOLAB_URI || process.env.MONGOHQ_URL)
+      ],
+      url: process.env.MONGOHQ_URL
     }
   }
 };
