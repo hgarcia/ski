@@ -39,6 +39,7 @@ function save(req, res) {
   users.create(dto, sendResponse);
   function sendResponse(err, result) {
     if (err) {
+      console.log("Error creating user: ", err);
       res.render("admin/setup", {title: "Setup admin user", err: err.message, user: null});
     } else if (result) {
       res.redirect("/admin");
