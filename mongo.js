@@ -9,6 +9,3 @@ exports.create = function (config) {
                   );
   }
 };
-
-
-//mongodb://heroku:6244d1162c7b50d5e30fc2b903c0472e@linus.mongohq.com:10018/app12644392
