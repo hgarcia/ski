@@ -1,0 +1,11 @@
+extends adminlayout
+
+block content
+  div.row="&nbsp;"
+  form.five.columns.centered.pale.restore-block(method="post")
+    h3="Video"
+    p
+      label(for="url", class="form-label")="Url:"
+      input(type="text", name="url")
+    p
+      input.button(type="submit", name="save", value="Save")
