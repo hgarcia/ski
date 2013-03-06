@@ -24,7 +24,7 @@ nav ul {
     cursor: pointer;
 }
 .body-style {
-    background-image: url('../images/bg-b.png');
+    /*background-image: url('../images/bg-b.png');*/
 }
 .center-content {
 }
@@ -37,24 +37,24 @@ nav ul {
     width: 75px;
 }
 .main-header {
-    background-image: url("../images/header_bg.gif");
-    box-shadow: 0 0 6px #B5DFA2;
+    /*background-image: url("../images/header_bg.gif");*/
+    /*box-shadow: 0 0 6px #B5DFA2;*/
     height: 12em;
-    position: relative;
+    /*position: relative;*/
 }
 .main-header h1 {
     font-size: 5em;
-    text-shadow: -2px -2px 2px #000, 2px 2px 2px #fff;
-    color: #fff;
-    opacity: 0.1;
+    /*text-shadow: -2px -2px 2px #000, 2px 2px 2px #fff;*/
+    /*color: #fff;*/
+    /*opacity: 0.1;*/
     font-family: 'Bk2AM';
-    padding-top: 0.15em;
-    line-height: 1em;
-    margin-top: 0;
+    /*padding-top: 0.15em;*/
+    /*line-height: 1em;*/
+    /*margin-top: 0;*/
 }
 .main-menu {
-    height: 5em;
-    margin-bottom: 10px;
+    /*height: 5em;*/
+    margin-top: 3em;
 }
 .menu-items {
     color: #DEDEDE;
@@ -128,37 +128,42 @@ nav ul {
     padding-bottom: 1px;
     padding-top: 1px;
 }
-#player {
+.dark-bar {
     background-color: #000;
     text-align: center;
 }
-.videos-list {
-    overflow-x: auto;
-    height: 150px;
-    margin: 10px 10px 0 10px;
+#player {
+    display: inline-block;
+    width: 68%;
 }
-#streamer ul li {
+.media-list {
+    overflow-x: auto;
+    margin-top: 3em !important;
+}
+.media-list ul li {
     display: table-cell;
-    padding-right: 10px;
+    padding-right: 1.2em;
 }
 
-#streamer ul li a {
+.media-list ul li a {
     color: #202020;
     text-decoration: none;
 }
 
-#streamer ul li h4 {
+.media-list ul li h4 {
     font-family: Arial;
-    font-size: 0.9em;
+    font-size: 1em;
     font-weight: normal;
     padding-left: 0.3em;
     width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    margin-bottom: 0.2em;
+    margin-top: 0;
 }
-#streamer ul li span {
-    font-size: 0.8em;
+.media-list ul li span {
+    font-size: 0.7em;
     padding-left: 0.3em;
 }
 

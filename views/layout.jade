@@ -9,12 +9,10 @@ html
     link(rel='stylesheet', href='/stylesheets/foundation.css')
     link(rel='stylesheet', href='/stylesheets/stylesheet.css')
   body.body-style
-    header.main-header
-      div.nine.columns.centered
-        a.no-decoration(href='/')
-          h1= "Dynamic Ski"
-    div.nine.columns.centered
-      nav.main-menu
+    div.main-header.eleven.columns.centered
+      a.five.columns.push-3.no-decoration(href='/')
+        h1= "Dynamic Ski"
+      nav.main-menu.five.columns
         ul
           li.menu-items.menu-videos(title='Videos')
             a.icon-play-alt(href='/videos')
@@ -24,6 +22,5 @@ html
             a.icon-link(href='/links')
           li.menu-items.menu-music(title='Music')
             a.icon-headphones(href='/music')
-      section.main-body
-        block content
+    block content
     script(src="/javascripts/videos.js")
