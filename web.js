@@ -8,6 +8,14 @@ var users = require('./models/users').init(db);
 var security = require('./models/security').init(users);
 var app = express();
 
+process.on('uncaughtException', function (err) {
+    try{
+        console.log('UNCAUGHT EXCEPTION', err);
+    } catch (e) {
+        console.log(e);
+    }
+});
+
 app.configure(function () {
   app.set('port', process.env.PORT || 5000);
   app.set('views', __dirname + '/views');
