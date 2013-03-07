@@ -131,11 +131,9 @@ nav ul {
     overflow-x: auto;
     margin-top: 3em !important;
 }
-
 .media-list img {
     width: 13.5em;
 }
-
 .media-list ul li {
     display: table-cell;
     padding-right: 1.2em;
@@ -145,17 +143,13 @@ nav ul {
     overflow: hidden;
     display: inline-block;
 }
-.youtube-thumb-container h4 { }
 .youtube-thumb {
     position: relative;
     top: -18px;
 }
-.vimeo-thumb-container { }
-.vimeo-thumb-container h4 {}
-.vimeo-thumb-container span { }
-.vimeo-thumb { }
-.media-list ul li a {}
-
+.media-list ul li a {
+    color: #202020;
+}
 .media-list ul li h4 {
     font-family: Arial;
     font-size: 1em;
@@ -172,11 +166,9 @@ nav ul {
     font-size: 0.7em;
     padding-left: 0.3em;
 }
-
 .float-right {
     float: right;
 }
-
 .icon-play-alt:before, .icon-camera:before, .icon-link:before, .icon-rss-alt:before, .icon-cog:before, .icon-document-stroke:before, .icon-headphones:before, .icon-user:before, .icon-twitter:before, .icon-google-plus:before, .icon-feed:before, .icon-vimeo:before, .icon-flickr:before, .icon-picassa:before, .icon-dribbble:before, .icon-wordpress:before, .icon-pinterest:before, .icon-cart:before, .icon-plus-alt:before, .icon-remove:before, .icon-enter:before, .icon-exit:before, .icon-minus-alt:before, .icon-pen:before, .icon-compass:before {
     font-family: 'icomoon';
     speak: none;
