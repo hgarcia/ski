@@ -3,7 +3,15 @@ extends adminlayout
 block content
   div.row="&nbsp;"
   div.eleven.columns.centered.pale.restore-block
-    h3=title
+    h3.three.columns=title
+    div.nine.columns(style="line-height: 37px; margin-top: 14px;")
+      form.twelve.columns.pale.restore-block(action="/admin/videos/0", method="post", style="margin: 0;")
+        span.one.columns
+          label(for="url", class="form-label")="Url:"
+        span.nine.columns
+          input(type="text", name="url")
+        span.two.columns
+          input.button(type="submit", name="save", value="Save", style="height: 32px;")
     table.twelve.record
       tr
         th.four="Title"
@@ -11,7 +19,6 @@ block content
         th.two="Provider"
         th.three="Author"
         th.one
-          a.icon-plus-alt(href="/admin/videos/0")
       for video in videos
         tr
           td= video.title
