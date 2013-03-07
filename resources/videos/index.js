@@ -1,17 +1,22 @@
 var curl = require('curling');
 
 module.exports = function (app) {
-  app.get("/videos", rotation);
+  app.get("/videos", htmlView);
+  app.get("/videos.json", rotation);
   app.get("/admin/videos", app.security.authorize(), list);
   app.get("/admin/videos/:id", app.security.authorize(), single);
   app.post("/admin/videos/:id", app.security.authorize(), save);
   app.delete("/admin/videos", app.security.authorize(), remove);
 };
 
+function htmlView (req, res) {
+  res.render("videos", {title: "Videos"});
+}
+
 function rotation (req, res) {
   var videos = req.app.db.collection('videos');
   videos.find({}, {sort: {created: -1}}).toArray(function (err, list) {
-    res.render("videos", {title: "Videos", list: list});
+    res.send(list);
   });
 }
 

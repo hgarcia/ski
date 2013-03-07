@@ -23,11 +23,6 @@ nav ul {
 .actionable {
     cursor: pointer;
 }
-.body-style {
-    /*background-image: url('../images/bg-b.png');*/
-}
-.center-content {
-}
 .container {
     margin: 0 auto;
     width: 80%
@@ -37,24 +32,19 @@ nav ul {
     width: 75px;
 }
 .main-header {
-    /*background-image: url("../images/header_bg.gif");*/
-    /*box-shadow: 0 0 6px #B5DFA2;*/
     height: 12em;
-    /*position: relative;*/
 }
 .main-header h1 {
     font-size: 5em;
-    /*text-shadow: -2px -2px 2px #000, 2px 2px 2px #fff;*/
-    /*color: #fff;*/
-    /*opacity: 0.1;*/
     font-family: 'Bk2AM';
-    /*padding-top: 0.15em;*/
-    /*line-height: 1em;*/
-    /*margin-top: 0;*/
 }
 .main-menu {
-    /*height: 5em;*/
     margin-top: 3em;
+    float: right;
+    width: 40%;
+}
+.main-menu ul {
+    float: right;
 }
 .menu-items {
     color: #DEDEDE;
@@ -66,7 +56,7 @@ nav ul {
     width: 6em;
     cursor: pointer;
     border-radius: 3em;
-    margin: 0.7em;
+    margin: 0.7em 0.3em 0;
 }
 .menu-items a {
     color: #dedede;
@@ -131,6 +121,7 @@ nav ul {
 .dark-bar {
     background-color: #000;
     text-align: center;
+    height: 28em;
 }
 #player {
     display: inline-block;
@@ -140,11 +131,41 @@ nav ul {
     overflow-x: auto;
     margin-top: 3em !important;
 }
+
+.media-list img {
+    width: 13.5em;
+}
+
 .media-list ul li {
     display: table-cell;
     padding-right: 1.2em;
 }
 
+.youtube-thumb-container div.image-container {
+    height: 105px;
+    overflow: hidden;
+}
+.youtube-thumb-container h4 {
+    position: relative;
+    top: 2px;
+}
+.youtube-thumb {
+    position: relative;
+    top: -18px;
+}
+.vimeo-thumb-container {
+    position: absolute;
+    top: 0;
+}
+.vimeo-thumb-container h4 {
+    position: relative;
+    top: -5px;
+}
+.vimeo-thumb-container span {
+    position: relative;
+    top: -8px;
+}
+.vimeo-thumb { }
 .media-list ul li a {
     color: #202020;
     text-decoration: none;

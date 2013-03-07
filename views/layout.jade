@@ -8,7 +8,7 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/foundation.css')
     link(rel='stylesheet', href='/stylesheets/stylesheet.css')
-  body.body-style
+  body
     div.main-header.eleven.columns.centered
       a.five.columns.push-3.no-decoration(href='/')
         h1= "Dynamic Ski"
@@ -23,4 +23,5 @@ html
           li.menu-items.menu-music(title='Music')
             a.icon-headphones(href='/music')
     block content
+    script(src="/javascripts/jquery.js")
     script(src="/javascripts/videos.js")
