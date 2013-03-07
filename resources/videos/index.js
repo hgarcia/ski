@@ -46,9 +46,9 @@ function save(req, res) {
       oEmbeddUrl = "http://vimeo.com/api/oembed.json?url=" + videoUrl.href;
     } else {
       if (videoUrl.host.indexOf("youtu.be/") === -1) {
-        oEmbeddUrl = "http://www.youtube.com/oembed?url=" + videoUrl.href;
-      } else {
         oEmbeddUrl = "http://www.youtube.com/oembed?url=http://youtu.be/" + videoUrl.query.split('=')[1];
+      } else {
+        oEmbeddUrl = "http://www.youtube.com/oembed?url=" + videoUrl.href;
       }
     }
     try {
