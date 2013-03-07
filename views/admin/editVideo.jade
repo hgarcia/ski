@@ -2,10 +2,32 @@ extends adminlayout
 
 block content
   div.row="&nbsp;"
-  form.five.columns.centered.pale.restore-block(method="post")
-    h3="Video"
-    p
-      label(for="url", class="form-label")="Url:"
-      input(type="text", name="url")
-    p
-      input.button(type="submit", name="save", value="Save")
+  form#editVideo.eight.columns.centered.pale.restore-block(method="post")
+    input(type="hidden", name="video[_id]", value= video._id)
+    h3.twelve.columns="Edit video"
+    div.four.columns
+      label(for="video[provider_name]")="Provider:"
+      input.four.columns(type="text", name="video[provider_name]", value= video.provider_name, disabled)
+    div.eight.columns
+      label(for="video[title]", class="form-label")="Title:"
+      input.eight.columns(type="text", name="video[title]", value= video.title)
+    div.six.columns
+      label(for="video[video_url]", class="form-label")="Video url:"
+      input(type="text", name="video[video_url]", value= video.video_url)
+    div.six.columns
+      label(for="video[thumbnail_url]", class="form-label", style="width: 150px;")="Thumbnail url:"
+      input(type="text", name="video[thumbnail_url]", value= video.thumbnail_url)
+    div.four.columns
+      label(for="video[author_name]", class="form-label")="Author:"
+      input(type="text", name="video[author_name]", value= video.author_name)
+    div.eight.columns
+      label(for="video[author_url]", class="form-label")="Author url:"
+      input(type="text", name="video[author_url]", value= video.author_url)
+    div.twelve.columns
+      label(for="video[description]", class="form-label")="Description:"
+      textarea(name="video[description]")= video.description
+    div.twelve.columns
+      input#saveEdit.button(type="button", name="save", value="Save")
+      span.right
+        input#cancelEdit.button.secondary(type="button", name="cancel", value="Cancel")
+    div.row="&nbsp;"

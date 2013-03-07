@@ -27,7 +27,7 @@ $(document).ready(function () {
       var img = document.createElement('img');
       var h4 = document.createElement('h4');
       var span = document.createElement('span');
-      img.src = v.thumbnail_url.replace('hqdefault', 'mqdefault');
+      img.src = v.thumbnail_url;
       img.alt = v.title + ' by ' + v.author_name;
       img.setAttribute("class", provider_name + "-thumb");
       imgCtr.appendChild(img);

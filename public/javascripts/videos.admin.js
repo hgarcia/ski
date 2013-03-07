@@ -1,4 +1,13 @@
 $(document).ready(function () {
+
+  $('#cancelEdit').click(function () {
+    document.location = "/admin/videos";
+  });
+
+  $('#saveEdit').click(function () {
+    $('form#editVideo').submit();
+  });
+
   $('.icon-minus-alt').click(function () {
     var ele = $(this);
     var id = this.id;
