@@ -140,36 +140,21 @@ nav ul {
     display: table-cell;
     padding-right: 1.2em;
 }
-
 .youtube-thumb-container div.image-container {
     height: 105px;
     overflow: hidden;
+    display: inline-block;
 }
-.youtube-thumb-container h4 {
-    position: relative;
-    top: 2px;
-}
+.youtube-thumb-container h4 { }
 .youtube-thumb {
     position: relative;
     top: -18px;
 }
-.vimeo-thumb-container {
-    position: absolute;
-    top: 0;
-}
-.vimeo-thumb-container h4 {
-    position: relative;
-    top: -5px;
-}
-.vimeo-thumb-container span {
-    position: relative;
-    top: -8px;
-}
+.vimeo-thumb-container { }
+.vimeo-thumb-container h4 {}
+.vimeo-thumb-container span { }
 .vimeo-thumb { }
-.media-list ul li a {
-    color: #202020;
-    text-decoration: none;
-}
+.media-list ul li a {}
 
 .media-list ul li h4 {
     font-family: Arial;
