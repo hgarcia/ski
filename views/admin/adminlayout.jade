@@ -9,29 +9,30 @@ html
     link(rel='stylesheet', href='/stylesheets/foundation.css')
     link(rel='stylesheet', href='/stylesheets/stylesheet.css')
   body
-    header.main-header
-      div.nine.columns.centered
-        a.no-decoration(href='/')
+    header.main-header-admin
+      div.eleven.columns.centered
+        a.five.columns.no-decoration(href='/')
           h1= title
-    div.nine.columns.centered
-      nav.main-menu
-        ul
-          li.menu-items.menu-videos(title='Videos')
-            a.icon-play-alt(href='/admin/videos')
-          li.menu-items.menu-pictures(title='Pictures')
-            a.icon-camera(href='/admin/pictures')
-          li.menu-items.menu-links(title='Links')
-            a.icon-link(href='/admin/links')
-          li.menu-items.menu-music(title='Music')
-            a.icon-headphones(href='/admin/music')
-          li.menu-items.menu-users(title='Users')
-            a.icon-user(href='/admin/users')
-          if user == null
-            li.menu-items.menu-login.float-right(title='Log In')
-              a.icon-enter(href='/admin/login')
-          else
-            li.menu-items.menu-login.float-right(title='Log Out')
-              a.icon-exit(href='/admin/logout')
+        nav.main-menu
+          ul
+            li.menu-items.menu-videos(title='Videos')
+              a.icon-play-alt(href='/admin/videos')
+            li.menu-items.menu-pictures(title='Pictures')
+              a.icon-camera(href='/admin/pictures')
+            li.menu-items.menu-links(title='Links')
+              a.icon-link(href='/admin/links')
+            li.menu-items.menu-music(title='Music')
+              a.icon-headphones(href='/admin/music')
+            li.menu-items.menu-users(title='Users')
+              a.icon-user(href='/admin/users')
+            if user == null
+              li.menu-items.menu-login.float-right(title='Log In')
+                a.icon-enter(href='/admin/login')
+            else
+              li.menu-items.menu-login.float-right(title='Log Out')
+                a.icon-exit(href='/admin/logout')
+    div.eleven.columns.centered
       section.main-body
         block content
-    script(src="/javascripts/videos.js")
+    script(src="/javascripts/jquery.js")
+    script(src="/javascripts/videos.admin.js")

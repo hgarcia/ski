@@ -1,4 +1,5 @@
 var curl = require('curling');
+var url = require('url');
 
 module.exports = function (app) {
   app.get("/videos", htmlView);
@@ -6,7 +7,7 @@ module.exports = function (app) {
   app.get("/admin/videos", app.security.authorize(), list);
   app.get("/admin/videos/:id", app.security.authorize(), single);
   app.post("/admin/videos/:id", app.security.authorize(), save);
-  app.delete("/admin/videos", app.security.authorize(), remove);
+  app.delete("/admin/videos/:id", app.security.authorize(), remove);
 };
 
 function htmlView (req, res) {
@@ -37,24 +38,32 @@ function single(req, res) {
 function save(req, res) {
   var connection = curl.connect({});
   var id = req.params.id;
-  var videoUrl = req.body.url;
-  var url;
+  var videoUrl = url.parse(req.body.url);
+  var oEmbeddUrl;
   var videos = require('../../models/videos').init(req.app.db);
   if (id === "0") {
-    if (videoUrl.indexOf('vimeo') !== -1) {
-      url = "http://vimeo.com/api/oembed.json?url=" + videoUrl;
+    if (videoUrl.host.indexOf('vimeo') !== -1) {
+      oEmbeddUrl = "http://vimeo.com/api/oembed.json?url=" + videoUrl.href;
     } else {
-      url = "http://www.youtube.com/oembed?url=" + videoUrl;
-    }
-    connection.get(url, {}, function (err, result) {
-      if (result.payload) {
-        var dto = JSON.parse(result.payload);
-        dto.video_url = videoUrl;
-        videos.create(dto, function (err, video) {
-          res.redirect("/admin/videos");
-        });
+      if (videoUrl.host.indexOf("youtu.be/") === -1) {
+        oEmbeddUrl = "http://www.youtube.com/oembed?url=" + videoUrl.href;
+      } else {
+        oEmbeddUrl = "http://www.youtube.com/oembed?url=http://youtu.be/" + videoUrl.query.split('=')[1];
       }
-    });
+    }
+    try {
+      connection.get(oEmbeddUrl, {}, function (err, result) {
+        if (result.payload) {
+          var dto = JSON.parse(result.payload);
+          dto.video_url = videoUrl.href;
+          videos.create(dto, function (err, video) {
+            res.redirect("/admin/videos");
+          });
+        }
+      });
+    } catch (parseE) {
+      console.log('Error parsing response', parseE);
+    }
   } else {
 
   }
@@ -62,7 +71,11 @@ function save(req, res) {
 
 function remove(req, res) {
   var videos = req.app.db.collection('videos');
-  videos.remove(req.params.id, function (err, video) {
-    res.redirect("admin/videos");
+  videos.removeById(req.params.id, function (err, video) {
+    if (err) {
+      res.send(err, 500);
+    } else {
+      res.send(204);
+    }
   });
 }

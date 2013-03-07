@@ -34,14 +34,25 @@ nav ul {
 .main-header {
     height: 11em;
 }
+.main-header-admin {
+    height: 7em;
+}
 .main-header h1 {
     font-size: 5em;
+    font-family: 'Bk2AM';
+}
+.main-header-admin h1 {
+    font-size: 3em;
     font-family: 'Bk2AM';
 }
 .main-menu {
     margin-top: 3em;
     float: right;
     width: 40%;
+}
+.main-header-admin .main-menu {
+    margin-top: 1em;
+    width: 45%;
 }
 .main-menu ul {
     float: right;
@@ -251,4 +262,21 @@ nav ul {
 }
 .icon-compass:before {
     content: "\e018";
+}
+
+/** iPad **/
+@media only screen and (max-width: 1024px) {
+    .main-header {
+        height: 9em;
+    }
+    .main-header h1 {
+        font-size: 340%;
+    }
+    .main-menu {
+        margin-top: 3%;
+        width: 24em;
+    }
+    .menu-items {
+        width: 5em;
+    }
 }
