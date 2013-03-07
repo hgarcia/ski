@@ -41,21 +41,23 @@ function save(req, res) {
   var videoUrl = url.parse(req.body.url);
   var oEmbeddUrl;
   var videos = require('../../models/videos').init(req.app.db);
+  var video_url = videoUrl.href;
+
   if (id === "0") {
     if (videoUrl.host.indexOf('vimeo') !== -1) {
-      oEmbeddUrl = "http://vimeo.com/api/oembed.json?url=" + videoUrl.href;
+      oEmbeddUrl = "http://vimeo.com/api/oembed.json?url=" + video_url;
     } else {
       if (videoUrl.host.indexOf("youtu.be/") === -1) {
-        oEmbeddUrl = "http://www.youtube.com/oembed?url=http://youtu.be/" + videoUrl.query.split('=')[1];
-      } else {
-        oEmbeddUrl = "http://www.youtube.com/oembed?url=" + videoUrl.href;
+        video_url = "http://youtu.be/" + videoUrl.query.split('=')[1];
       }
+      oEmbeddUrl = "http://www.youtube.com/oembed?url=" + video_url;
     }
     try {
       connection.get(oEmbeddUrl, {}, function (err, result) {
         if (result.payload) {
           var dto = JSON.parse(result.payload);
-          dto.video_url = videoUrl.href;
+          dto.video_url = video_url;
+          dto.thumbnail_url = dto.thumbnail_url.replace('hqdefault', 'mqdefault');
           videos.create(dto, function (err, video) {
             res.redirect("/admin/videos");
           });

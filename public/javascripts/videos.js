@@ -1,17 +1,18 @@
 $(document).ready(function () {
 
   function clickHandler(ev) {
+    var player = document.getElementById('player');
     var provider = this.getAttribute("data-provider");
     var urlParts = this.getAttribute("data-url").split("/");
     var videoKey = urlParts[urlParts.length - 1];
     var h = "";
     if (provider === "youtube") {
-      h = '<iframe width="72%" height="392" src="http://www.youtube.com/embed/' + videoKey + '?feature=oembed" frameborder="0" allowfullscreen></iframe>';
+      h = '<iframe width="90%" height="392" src="http://www.youtube.com/embed/' + videoKey + '?feature=oembed" frameborder="0" allowfullscreen></iframe>';
     }
     if (provider === "vimeo") {
       h = '<iframe src="http://player.vimeo.com/video/' + videoKey + '?title=0&amp;byline=0&amp;portrait=0&amp;color=3B65AF" width="100%" height="392" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
     }
-    document.getElementById('player').innerHTML = h;
+    player.innerHTML = h;
   }
 
   function list(videos) {
@@ -26,7 +27,7 @@ $(document).ready(function () {
       var img = document.createElement('img');
       var h4 = document.createElement('h4');
       var span = document.createElement('span');
-      img.src = v.thumbnail_url;
+      img.src = v.thumbnail_url.replace('hqdefault', 'mqdefault');
       img.alt = v.title + ' by ' + v.author_name;
       img.setAttribute("class", provider_name + "-thumb");
       imgCtr.appendChild(img);

@@ -136,7 +136,7 @@ nav ul {
 }
 #player {
     display: inline-block;
-    width: 68%;
+    width: 50%;
 }
 .media-list {
     overflow-x: auto;
@@ -148,15 +148,6 @@ nav ul {
 .media-list ul li {
     display: table-cell;
     padding-right: 1.2em;
-}
-.youtube-thumb-container div.image-container {
-    height: 105px;
-    overflow: hidden;
-    display: inline-block;
-}
-.youtube-thumb {
-    position: relative;
-    top: -18px;
 }
 .media-list ul li a {
     color: #202020;
