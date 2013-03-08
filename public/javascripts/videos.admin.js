@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+  $.foundation.customForms.appendCustomMarkup();
   $('#cancelEdit').click(function () {
     document.location = "/admin/videos";
   });

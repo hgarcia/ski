@@ -5,13 +5,18 @@ block content
   div.eleven.columns.centered.pale.restore-block
     h3.three.columns=title
     div.nine.columns(style="line-height: 37px; margin-top: 14px;")
-      form.twelve.columns.pale.restore-block(action="/admin/videos/0", method="post", style="margin: 0;")
-        span.one.columns
-          label(for="url", class="form-label")="Url:"
-        span.nine.columns
-          input(type="text", name="url")
-        span.two.columns
+      form.twelve.columns.pale.restore-block.custom(action="/admin/videos/0", method="post", style="margin: 0;")
+        span.five.columns
+          input(type="text", name="url", placeholder="url")
+        span.four.columns
+          select.custom.medium(name="serie")
+            option(value="")="None"
+            option(value="Salomon")="Salomon"
+            option(value="Two Brothers")="Two Brothers"
+        span.two.columns(style="width: 12%;")
           input.button(type="submit", name="save", value="Save", style="height: 32px;")
+        span.one.columns(style="padding: 0;width: 12%;")
+          a.button(href="#", style="font-size: 13px;padding: 11px 14px 6px;")="New serie"
     table.twelve.record
       tr
         th.four="Title"

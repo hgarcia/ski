@@ -2,15 +2,25 @@ extends adminlayout
 
 block content
   div.row="&nbsp;"
-  form#editVideo.eight.columns.centered.pale.restore-block(method="post")
+  form#editVideo.eight.columns.centered.pale.restore-block.custom(method="post")
     input(type="hidden", name="video[_id]", value= video._id)
     h3.twelve.columns="Edit video"
-    div.four.columns
-      label(for="video[provider_name]")="Provider:"
-      input.four.columns(type="text", name="video[provider_name]", value= video.provider_name, disabled)
+    div.row
+      div.four.columns
+        label(for="video[provider_name]")="Provider:"
+        input(type="text", name="video[provider_name]", value= video.provider_name, disabled)
+      div.two.columns
+        label="&nbsp;"
+        a.button.small(href="#")="New series"
     div.eight.columns
       label(for="video[title]", class="form-label")="Title:"
       input.eight.columns(type="text", name="video[title]", value= video.title)
+    div.four.columns
+      label(for="video[provider_name]")="Serie:"
+      select.medium.custom(name="video[serie]")
+        option(value="")="None"
+        option(value="Salomon")="Salomon"
+        option(value="Two Brothers")="Two Brothers"
     div.six.columns
       label(for="video[video_url]", class="form-label")="Video url:"
       input(type="text", name="video[video_url]", value= video.video_url)
