@@ -11,26 +11,29 @@ html
   body
     header.main-header-admin
       div.eleven.columns.centered
-        a.five.columns.no-decoration(href='/')
-          h1= title
-        nav.main-menu
+        div.three.columns
+          a.no-decoration(href='/')
+            h1= title
+        div.eight.columns
           ul
-            li.menu-items.menu-videos(title='Videos')
-              a.icon-play-alt(href='/admin/videos')
-            li.menu-items.menu-pictures(title='Pictures')
-              a.icon-camera(href='/admin/pictures')
-            li.menu-items.menu-links(title='Links')
-              a.icon-link(href='/admin/links')
-            li.menu-items.menu-music(title='Music')
-              a.icon-headphones(href='/admin/music')
-            li.menu-items.menu-users(title='Users')
-              a.icon-user(href='/admin/users')
+            li.menu-items(title='Videos')
+              a(href='/admin/videos')="Videos"
+            li.menu-items(title='Series')
+              a(href='/admin/series')="Series"
+            li.menu-items(title='Pictures')
+              a(href='/admin/pictures')="Images"
+            li.menu-items(title='Links')
+              a(href='/admin/links')="Links"
+            li.menu-items(title='Music')
+              a(href='/admin/music')="Music"
+            li.menu-items(title='Users')
+              a(href='/admin/users')="Users"
             if user == null
-              li.menu-items.menu-login.float-right(title='Log In')
-                a.icon-enter(href='/admin/login')
+              li.menu-items.float-right(title='Log In')
+                a(href='/admin/login')="Log in"
             else
-              li.menu-items.menu-login.float-right(title='Log Out')
-                a.icon-exit(href='/admin/logout')
+              li.menu-items.float-right(title='Log Out')
+                a(href='/admin/logout')="Log out"
     div.eleven.columns.centered
       section.main-body
         block content

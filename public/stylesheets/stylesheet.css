@@ -1,4 +1,4 @@
-nav ul {
+nav ul, .main-header-admin ul {
     list-style:none;
 }
 @font-face {
@@ -35,14 +35,14 @@ nav ul {
     height: 11em;
 }
 .main-header-admin {
-    height: 7em;
+    height: 5em;
 }
 .main-header h1 {
     font-size: 5em;
     font-family: 'Bk2AM';
 }
 .main-header-admin h1 {
-    font-size: 3em;
+    font-size: 2em;
     font-family: 'Bk2AM';
 }
 .main-menu {
@@ -73,6 +73,14 @@ nav ul {
     color: #dedede;
     text-decoration: none;
     font-size: 2em;
+}
+.main-header-admin .menu-items {
+    width: inherit;
+    color: inherit;
+}
+.main-header-admin .menu-items a{
+    color: inherit;
+    font-size: 1.5em;
 }
 .menu-videos {
     background-color: rgb(59, 101, 175);

@@ -1,0 +1,14 @@
+extends adminlayout
+
+block content
+  div.row="&nbsp;"
+  form#editVideo.eight.columns.centered.pale.restore-block.custom(method="post")
+    h3.twelve.columns="Edit serie"
+    div.row
+    div.twelve.columns
+      input.eight.columns(type="text", name="name", value= serie.name, placeholder="Name")
+    div.twelve.columns
+      input#saveEdit.button(type="button", name="save", value="Save")
+      span.right
+        input#cancelEdit.button.secondary(type="button", name="cancel", value="Cancel")
+    div.row="&nbsp;"
