@@ -23,7 +23,8 @@ block content
       tr
         th.four="Title"
         th.three="Url"
-        th.two="Provider"
+        th.one="Category"
+        th.one="Provider"
         th.two="Author"
         th.one
       for video in videos
@@ -31,6 +32,7 @@ block content
           td= video.title
           td
             a(href= video.video_url, target="prev_link")= video.video_url
+          td= video.category
           td
             a(href= video.provider_url, target="prev_link")= video.provider_name
           td
