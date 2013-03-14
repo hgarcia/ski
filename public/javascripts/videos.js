@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
   function clickHandler(ev) {
-    var player = document.getElementById('player');
     var provider = this.getAttribute("data-provider");
     var urlParts = this.getAttribute("data-url").split("/");
     var videoKey = urlParts[urlParts.length - 1];
@@ -12,7 +11,7 @@ $(document).ready(function () {
     if (provider === "vimeo") {
       h = '<iframe src="http://player.vimeo.com/video/' + videoKey + '?title=0&amp;byline=0&amp;portrait=0&amp;color=3B65AF" width="100%" height="392" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
     }
-    player.innerHTML = h;
+    $('#player').html(h);
   }
 
   function list(videos) {
@@ -45,6 +44,9 @@ $(document).ready(function () {
       a.appendChild(span)
       li.appendChild(a);
       ctr.appendChild(li);
+      if (i === 0) {
+        a.click();
+      }
     }
   }
 
@@ -52,11 +54,12 @@ $(document).ready(function () {
     $.ajax({
       url: "/videos.json",
       success: function (data) {
-        console.log(data);
         list(data);
       },
       error: function (err) {
-        console.log(err);
+        if (console && console.log) {
+          console.log(err);
+        }
       }
     })
   }

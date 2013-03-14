@@ -5,9 +5,9 @@ var url = require('url');
 exports.init = function (db) {
   var videos = db.collection('videos');
   return {
-    createFromApi: function (urlString , cb) {
+    createFromApi: function (data, cb) {
       var connection = curl.connect({});
-      var videoUrl = url.parse(urlString);
+      var videoUrl = url.parse(data.url);
       var self = this;
       var oEmbeddUrl;
       var video_url = videoUrl.href;
@@ -23,6 +23,8 @@ exports.init = function (db) {
         connection.get(oEmbeddUrl, {}, function (err, result) {
           if (result.payload) {
             var dto = JSON.parse(result.payload);
+            dto.category = data.category;
+            dto.serie = data.serie;
             dto.video_url = video_url;
             dto.thumbnail_url = dto.thumbnail_url.replace('hqdefault', 'mqdefault');
             self.create(dto, cb);
@@ -43,6 +45,8 @@ exports.init = function (db) {
       videos.findById(dto._id, modifyAndSave);
       function modifyAndSave(err, video) {
         video.title = dto.title;
+        video.category = dto.category;
+        video.serie = dto.serie;
         video.video_url = dto.video_url;
         video.thumbnail_url = dto.thumbnail_url;
         video.author_name = dto.author_name;

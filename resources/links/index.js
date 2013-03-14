@@ -6,7 +6,7 @@ module.exports = function (app) {
 };
 
 function list(req, res) {
-
+  res.render("links", {title: "Links"});
 }
 
 function save(req, res) {

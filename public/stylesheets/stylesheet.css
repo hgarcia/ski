@@ -146,6 +146,10 @@ nav ul, .main-header-admin ul {
     display: inline-block;
     width: 50%;
 }
+.main-article {
+    color: #FFF;
+    text-align: left;
+}
 .media-list {
     overflow-x: auto;
     margin-top: 3em !important;

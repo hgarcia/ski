@@ -1,3 +1,5 @@
+var categs = require('../../models/categories');
+
 module.exports = function (app) {
   app.get("/videos", htmlView);
   app.get("/videos.json", rotation);
@@ -20,34 +22,53 @@ function rotation (req, res) {
 
 function list(req, res) {
   var videos = req.app.db.collection('videos');
-  videos.find({}, {sort: {created: -1}}).toArray(function (err, list) {
-    res.render("admin/videos", {title: "Admin video list", videos: list, user: req.session.user});
+  var series = req.app.db.collection('series');
+  series.find({}, {sort: {created: 1}}).toArray(function (err, seriesList) {
+    videos.find({}, {sort: {created: -1}}).toArray(function (err, list) {
+      var payload = {
+        title: "Admin video list",
+        videos: list,
+        series: seriesList,
+        user: req.session.user,
+        categories: categs.get()
+      };
+      res.render("admin/videos", payload);
+    });
   });
 }
 
 function single(req, res) {
   var videos = req.app.db.collection('videos');
-  videos.findById(req.params.id, function (err, video) {
-    res.render("admin/editVideo", {title: "Admin edit video", video: video, user: req.session.user});
+  var series = req.app.db.collection('series');
+  series.find({}, {sort: {created: 1}}).toArray(function (err, seriesList) {
+    videos.findById(req.params.id, function (err, video) {
+      var payload = {
+        title: "Admin edit video",
+        video: video,
+        series: seriesList,
+        user: req.session.user,
+        categories: categs.get()
+      };
+      res.render("admin/editVideo", payload);
+    });
   });
 }
 
 function save(req, res) {
   var id = req.params.id;
+  var data = req.body.video;
   var videos = require('../../models/videos').init(req.app.db);
 
   if (id === "0") {
-    videos.createFromApi(req.body.url, function (err, video) {
-      if (video) {
-        res.redirect("/admin/videos");
-      }
-    });
+    videos.createFromApi(data, sendResponse);
   } else {
-    videos.update(req.body.video, function (err, video) {
-      if (video) {
-        res.redirect("/admin/videos");
-      }
-    });
+    videos.update(data, sendResponse);
+  }
+
+  function sendResponse(err, video) {
+    if (video) {
+      res.redirect("/admin/videos");
+    }
   }
 }
 

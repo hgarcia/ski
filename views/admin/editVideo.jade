@@ -5,13 +5,18 @@ block content
   form#editVideo.eight.columns.centered.pale.restore-block.custom(method="post")
     input(type="hidden", name="video[_id]", value= video._id)
     h3.twelve.columns="Edit video"
-    div.row
-      div.four.columns
-        label(for="video[provider_name]")="Provider:"
-        input(type="text", name="video[provider_name]", value= video.provider_name, disabled)
-      div.two.columns
-        label="&nbsp;"
-        a.button.small(href="#")="New series"
+    div.eight.columns
+      label(for="video[provider_name]")="Provider:"
+      input(type="text", name="video[provider_name]", value= video.provider_name, disabled)
+    div.four.columns
+      label(for="video[category]")="Category:"
+      select.medium.custom(name="video[category]")
+        option(value="")="Select one"
+        for category in categories
+          if (category.id == video.category)
+            option(value= category.id, selected)= category.name
+          else
+            option(value= category.id)= category.name
     div.eight.columns
       label(for="video[title]", class="form-label")="Title:"
       input.eight.columns(type="text", name="video[title]", value= video.title)
@@ -19,8 +24,11 @@ block content
       label(for="video[provider_name]")="Serie:"
       select.medium.custom(name="video[serie]")
         option(value="")="None"
-        option(value="Salomon")="Salomon"
-        option(value="Two Brothers")="Two Brothers"
+        for serie in series
+          if (serie._id == video.serie)
+            option(value= serie._id, selected)= serie.name
+          else
+            option(value= serie._id)= serie.name
     div.six.columns
       label(for="video[video_url]", class="form-label")="Video url:"
       input(type="text", name="video[video_url]", value= video.video_url)
@@ -37,7 +45,7 @@ block content
       label(for="video[description]", class="form-label")="Description:"
       textarea(name="video[description]")= video.description
     div.twelve.columns
-      input#saveEdit.button(type="button", name="save", value="Save")
+      input#saveVideoEdit.button(type="submit", name="save", value="Save")
       span.right
-        input#cancelEdit.button.secondary(type="button", name="cancel", value="Cancel")
+        input#cancelVideoEdit.button.secondary(type="button", name="cancel", value="Cancel")
     div.row="&nbsp;"

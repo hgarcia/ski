@@ -3,20 +3,22 @@ extends adminlayout
 block content
   div.row="&nbsp;"
   div.eleven.columns.centered.pale.restore-block
-    h3.three.columns=title
-    div.nine.columns(style="line-height: 37px; margin-top: 14px;")
+    div.twelve.columns(style="line-height: 37px; margin-top: 14px;")
       form.twelve.columns.pale.restore-block.custom(action="/admin/videos/0", method="post", style="margin: 0;")
-        span.five.columns
-          input(type="text", name="url", placeholder="url")
         span.four.columns
-          select.custom.medium(name="serie")
+          input(type="text", name="video[url]", placeholder="url")
+        span.three.columns
+          select.custom.medium(name="video[category]")
+            option(value="")="Select one"
+            for category in categories
+              option(value= category.id)= category.name
+        span.three.columns
+          select.custom.medium(name="video[serie]")
             option(value="")="None"
-            option(value="Salomon")="Salomon"
-            option(value="Two Brothers")="Two Brothers"
+            for serie in series
+              option(value= serie._id)= serie.name
         span.two.columns(style="width: 12%;")
           input.button(type="submit", name="save", value="Save", style="height: 32px;")
-        span.one.columns(style="padding: 0;width: 12%;")
-          a.button(href="#", style="font-size: 13px;padding: 11px 14px 6px;")="New serie"
     table.twelve.record
       tr
         th.four="Title"
@@ -35,4 +37,4 @@ block content
             a(href= video.author_url, target="prev_link")= video.author_name
           td
             a.icon-pen(href="/admin/videos/" + video._id)
-            a.icon-minus-alt.float-right(href="#", id= video._id)
+            a.icon-minus-alt.float-right(href="#", id= video._id, data-element="videos")
