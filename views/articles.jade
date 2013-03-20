@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  div.dark-bar
+    div.main-article.eleven.columns.centered
+      h2
+        a(href= mainarticle.href)= mainarticle.title
+        div= mainarticle.summary
+
+  div.main-article.eleven.columns.centered
+    for article in articles
+      div.article-summary
+        h2
+          a(href= article.href)= article.title
+        p= article.summary
+
+  script(src="/javascripts/jquery.js")
+  script(src="/javascripts/articles.js")

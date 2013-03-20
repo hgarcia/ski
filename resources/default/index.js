@@ -2,7 +2,7 @@
 module.exports = function (app) {
   app.get('/', index);
   app.get('/videos', videos);
-  app.get('/links', links);
+  app.get('/articles', articles);
   app.get('/pictures', pictures);
   app.get('/music', music);
 };
@@ -16,8 +16,8 @@ function videos(req, res) {
 function music(req, res) {
   res.render('music', { title: 'The Bicho - Music for your outdoor time' });
 }
-exports.links = function links(req, res) {
-  res.render('links', { title: 'The Bicho - News and articles' });
+function articles(req, res) {
+  res.render('articles', { title: 'The Bicho - News and articles' });
 }
 function pictures(req, res) {
   res.render('pictures', { title: 'The Bicho - Ski, snowboard and outdoor pictures' });
