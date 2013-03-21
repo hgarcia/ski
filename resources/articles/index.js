@@ -2,11 +2,35 @@ var categs = require('../../models/categories');
 
 module.exports = function (app) {
   app.get("/articles", htmlView);
-  // app.get("/articles.json", rotation);
-  app.get("/admin/articles", app.security.authorize({errRedirect: '/admin/login' }), list);
-  app.post("/admin/articles", app.security.authorize({errRedirect: '/admin/login' }), save);
-  app.delete("/admin/articles", app.security.authorize({errRedirect: '/admin/login' }), remove);
+  app.get("/admin/articles", app.security.authorize(), list);
+  app.get("/admin/articles/:id", app.security.authorize(), single);
+  app.post("/admin/articles", app.security.authorize(), save);
+  app.delete("/admin/articles/:id", app.security.authorize(), remove);
 };
+
+
+function single(req, res) {
+  var articles = req.app.db.collection('articles');
+  var series = req.app.db.collection('series');
+  series.find({}, {sort: {created: 1}}).toArray(function (err, seriesList) {
+    var payload = {
+      title: "Edit article",
+      series: seriesList,
+      article: {},
+      user: req.session.user,
+      categories: categs.get()
+    };
+    if (req.params.id === "0") {
+      sendData(null, {title: "", serie: "", category: "", summary: "", url: "", _id: "0"})
+    } else {
+      articles.findById(req.params.id, sendData);
+    }
+    function sendData(err, article) {
+      payload.article = article;
+      res.render("admin/editArticle", payload);
+    }
+  });
+}
 
 function htmlView(req, res) {
   var articles = req.app.db.collection('articles');
@@ -16,14 +40,13 @@ function htmlView(req, res) {
   });
 }
 
-
 function list(req, res) {
   var articles = req.app.db.collection('articles');
   var series = req.app.db.collection('series');
   series.find({}, {sort: {created: 1}}).toArray(function (err, seriesList) {
     articles.find({}, {sort: {created: -1}}).toArray(function (err, list) {
       var payload = {
-        title: "Admin articles list",
+        title: "Article list",
         articles: list,
         series: seriesList,
         user: req.session.user,
@@ -35,9 +58,24 @@ function list(req, res) {
 }
 
 function save(req, res) {
-
+  var article = req.body.article;
+  var articles = req.app.db.collection('articles');
+  console.log(article);
+  if (article._id === "0") {
+    delete article._id;
+  }
+  articles.save(article, {safe: true}, function (err, article) {
+      res.redirect("/admin/articles");
+  });
 }
 
 function remove(req, res) {
-
+  var articles = req.app.db.collection('articles');
+  articles.removeById(req.params.id, function (err, article) {
+    if (err) {
+      res.send(err, 500);
+    } else {
+      res.send(204);
+    }
+  });
 }

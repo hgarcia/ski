@@ -1,18 +1,18 @@
 extends layout
 
 block content
-  div.dark-bar
-    div.main-article.eleven.columns.centered
+  div.main-article.dark-bar
+    div.eleven.columns.centered
       h2
-        a(href= mainarticle.href)= mainarticle.title
-        div= mainarticle.summary
+        a(href= mainarticle.url, target="_blank")= mainarticle.title
+      div.eleven.columns.centered= mainarticle.summary
 
-  div.main-article.eleven.columns.centered
+  div.eleven.columns.centered
     for article in articles
       div.article-summary
-        h2
-          a(href= article.href)= article.title
-        p= article.summary
+        h3
+          a(href= article.url, target="_blank")= article.title
+        div.eleven.columns.centered= article.summary
 
   script(src="/javascripts/jquery.js")
   script(src="/javascripts/articles.js")

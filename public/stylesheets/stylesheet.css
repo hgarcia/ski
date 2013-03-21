@@ -23,6 +23,14 @@ nav ul, .main-header-admin ul {
 .actionable {
     cursor: pointer;
 }
+.article-summary {
+    border-left: 2em solid #2BA6CB;
+    margin-bottom: 3em;
+    padding-left: 1em;
+}
+.article-summary div {
+    line-height: 1.3em;
+}
 .container {
     margin: 0 auto;
     width: 80%
@@ -149,6 +157,14 @@ nav ul, .main-header-admin ul {
 .main-article {
     color: #FFF;
     text-align: left;
+}
+.main-article h2 {
+    padding-top: 0.3em;
+    padding-left: 1em;
+}
+.main-article.dark-bar {
+    height: inherit;
+    padding-bottom: 16px;
 }
 .media-list {
     overflow-x: auto;

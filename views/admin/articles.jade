@@ -3,38 +3,20 @@ extends adminlayout
 block content
   div.row="&nbsp;"
   div.eleven.columns.centered.pale.restore-block
-    div.twelve.columns(style="line-height: 37px; margin-top: 14px;")
-      form.twelve.columns.pale.restore-block.custom(action="/admin/articles/0", method="post", style="margin: 0;")
-        span.twelve.columns
-          input(type="text", name="article[title]", placeholder="Title")
-        span.six.columns
-          input(type="text", name="article[url]", placeholder="url")
-        span.three.columns
-          select.custom.medium(name="article[category]")
-            option(value="")="Select one"
-            for category in categories
-              option(value= category.id)= category.name
-        span.three.columns
-          select.custom.medium(name="article[serie]")
-            option(value="")="None"
-            for serie in series
-              option(value= serie._id)= serie.name
-        span.twelve.columns
-          textarea(name="article[summary]", style="width: 100%;")
-        span.two.columns(style="width: 12%;")
-          input.button(type="submit", name="save", value="Save", style="height: 32px;")
+    div.row="&nbsp;"
     table.twelve.record
       tr
-        th.sic="Title"
-        th.three="Url"
+        th.five="Title"
+        th.four="Url"
         th.two="Category"
         th.one
+          a.icon-plus-alt(href="/admin/articles/0")="&nbsp;"
       for article in articles
         tr
           td= article.title
           td
-            a(href= article.href, target="prev_link")= article.href
+            a(href= article.url, target="prev_link")= article.url
           td= article.category
           td
-            a.icon-pen(href="/admin/articles/" + article._id)
-            a.icon-minus-alt.float-right(href="#", id= article._id, data-element="articles")
+            a.icon-pen(href="/admin/articles/" + article._id)="&nbsp;"
+            a.icon-minus-alt.float-right(href="#", id= article._id, data-element="articles")="&nbsp;"

@@ -26,7 +26,7 @@ function list(req, res) {
   series.find({}, {sort: {created: 1}}).toArray(function (err, seriesList) {
     videos.find({}, {sort: {created: -1}}).toArray(function (err, list) {
       var payload = {
-        title: "Admin video list",
+        title: "Video list",
         videos: list,
         series: seriesList,
         user: req.session.user,
@@ -43,7 +43,7 @@ function single(req, res) {
   series.find({}, {sort: {created: 1}}).toArray(function (err, seriesList) {
     videos.findById(req.params.id, function (err, video) {
       var payload = {
-        title: "Admin edit video",
+        title: "Edit video",
         video: video,
         series: seriesList,
         user: req.session.user,

@@ -1,0 +1,34 @@
+extends adminlayout
+
+block content
+  div.row="&nbsp;"
+  form.eight.columns.centered.pale.restore-block.custom(action="/admin/articles" , method="post")
+    input(type="hidden", name="article[_id]", value= article._id)
+    h3.twelve.columns="Edit article"
+    div.twelve.columns
+      input(type="text", name="article[title]", placeholder="Title", value= article.title)
+    div.twelve.columns
+      input(type="text", name="article[url]", placeholder="url", value= article.url)
+    div.eight.columns
+      select.custom.medium(name="article[category]")
+        option(value="")="Select one"
+        for category in categories
+          if (category.id == article.category)
+            option(value= category.id, selected)= category.name
+          else
+            option(value= category.id)= category.name
+    div.four.columns
+      select.custom.medium(name="article[serie]")
+        option(value="")="None"
+        for serie in series
+          if (serie._id == article.serie)
+            option(value= serie._id, selected)= serie.name
+          else
+            option(value= serie._id)= serie.name
+    div.twelve.columns
+      textarea(name="article[summary]", style="width: 100%;")=article.summary
+    div.twelve.columns
+      input.button(type="submit", name="save", value="Save", style="height: 32px;")
+      span.right
+        input#cancelArticleEdit.button.secondary(type="button", name="cancel", value="Cancel")
+    div.row="&nbsp;"
