@@ -35,8 +35,7 @@ function single(req, res) {
 function htmlView(req, res) {
   var articles = req.app.db.collection('articles');
   articles.find({}, {sort: {created: -1}}).toArray(function (err, list) {
-    // var mainarticle = list.shift();
-    res.render("articles", {title: "Articles", articles: _.rest(list), mainarticle: list[0]});
+    res.render("articles", {title: "Articles", articles: _.rest(list), first: list[0]});
   });
 }
 
