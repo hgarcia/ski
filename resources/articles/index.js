@@ -1,4 +1,5 @@
 var categs = require('../../models/categories');
+var _ = require("underscore");
 
 module.exports = function (app) {
   app.get("/articles", htmlView);
@@ -35,7 +36,7 @@ function htmlView(req, res) {
   var articles = req.app.db.collection('articles');
   articles.find({}, {sort: {created: -1}}).toArray(function (err, list) {
     // var mainarticle = list.shift();
-    res.render("articles", {title: "Articles", articles: list});
+    res.render("articles", {title: "Articles", articles: _.rest(list), mainarticle: list[0]});
   });
 }
 

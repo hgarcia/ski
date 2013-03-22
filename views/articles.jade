@@ -4,8 +4,8 @@ block content
   div.main-article.dark-bar
     div.eleven.columns.centered
       h2
-        a(href= articles[0].url, target="_blank")= articles[0].title
-      div.eleven.columns.centered= articles[0].summary
+        a(href= mainarticle.url, target="_blank")= mainarticle.title
+      div.eleven.columns.centered= mainarticle.summary
 
   div.eleven.columns.centered
     for article in articles
