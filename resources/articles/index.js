@@ -8,7 +8,6 @@ module.exports = function (app) {
   app.delete("/admin/articles/:id", app.security.authorize(), remove);
 };
 
-
 function single(req, res) {
   var articles = req.app.db.collection('articles');
   var series = req.app.db.collection('series');
@@ -35,8 +34,8 @@ function single(req, res) {
 function htmlView(req, res) {
   var articles = req.app.db.collection('articles');
   articles.find({}, {sort: {created: -1}}).toArray(function (err, list) {
-    var mainarticle = list.shift();
-    res.render("articles", {title: "Articles", articles: list, mainarticle: mainarticle});
+    // var mainarticle = list.shift();
+    res.render("articles", {title: "Articles", articles: list});
   });
 }
 
