@@ -172,6 +172,7 @@ nav ul, .main-header-admin ul {
 }
 .media-list img {
     width: 13.5em;
+    height: 8em;
 }
 .media-list ul li {
     display: table-cell;
