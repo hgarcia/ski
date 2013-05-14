@@ -15,7 +15,7 @@ exports.init = function (db) {
         oEmbeddUrl = "http://vimeo.com/api/oembed.json?url=" + video_url;
       } else {
         if (videoUrl.host.indexOf("youtu.be/") === -1) {
-          video_url = "http://youtu.be/" + videoUrl.query.split('=')[1];
+          video_url = "http://youtu.be" + videoUrl.path;
         }
         oEmbeddUrl = "http://www.youtube.com/oembed?url=" + video_url;
       }
