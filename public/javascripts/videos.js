@@ -23,11 +23,16 @@ $(document).ready(function () {
 
   function clickHandler(event) {
     event.preventDefault();
-    Path.history.pushState({}, "", $(this).attr("href"));
+    var ele = $(this);
+    var title = ele.attr('title') + " - thebicho.com";
+    $('head title').html(title);
+    console.log(ele.attr('title'));
+    Path.history.pushState({}, title, ele.attr("href"));
   }
 
   function list(videos) {
     var ctr = document.getElementById("videos-list");
+    var selected = $('#selectedVideoId').html();
     for (var i = 0; i < videos.length; i++) {
       var v = videos[i];
       var provider_name = v.provider_name.toLowerCase();
@@ -56,8 +61,14 @@ $(document).ready(function () {
       a.appendChild(span)
       li.appendChild(a);
       ctr.appendChild(li);
-      if (i === 0) {
-        a.click();
+      if (selected === '') {
+        if (i === 0) {
+          a.click();
+        }
+      } else {
+        if (selected === videoKey) {
+          a.click();
+        }
       }
     }
   }

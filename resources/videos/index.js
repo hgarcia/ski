@@ -2,6 +2,7 @@ var categs = require('../../models/categories');
 
 module.exports = function (app) {
   app.get("/videos", htmlView);
+  app.get("/videos/:id/:provider/:title", htmlView);
   app.get("/videos.json", rotation);
   app.get("/admin/videos", app.security.authorize(), list);
   app.get("/admin/videos/:id", app.security.authorize(), single);
@@ -10,7 +11,7 @@ module.exports = function (app) {
 };
 
 function htmlView (req, res) {
-  res.render("videos", {title: "Videos"});
+  res.render("videos", {title: "Videos", id: req.params.id});
 }
 
 function rotation (req, res) {

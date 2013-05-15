@@ -39,6 +39,9 @@ nav ul, .main-header-admin ul {
     display: inline-block;
     width: 75px;
 }
+.hidden {
+    display: none;
+}
 .main-header {
     height: 11em;
 }
