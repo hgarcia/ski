@@ -170,15 +170,16 @@ nav ul, .main-header-admin ul {
     padding-bottom: 16px;
 }
 .media-list {
-    overflow-x: auto;
     margin-top: 3em !important;
+    margin: 0 auto;
+    width: 88%;
 }
 .media-list img {
     width: 13.5em;
     height: 8em;
 }
 .media-list ul li {
-    display: table-cell;
+    display: inline-block;
     padding-right: 1.2em;
 }
 .media-list ul li a {
@@ -189,6 +190,7 @@ nav ul, .main-header-admin ul {
     font-size: 1em;
     font-weight: normal;
     padding-left: 0.3em;
+    padding-right: 0.3em;
     width: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
