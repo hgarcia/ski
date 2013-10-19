@@ -1,13 +1,13 @@
 {
-  "name": "dynamic-ski",
-  "version": "0.0.1",
+  "name": "the-bicho",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "start": "node web"
   },
   "engines" : {
-    "node" : "0.8.21",
-    "npm": "1.2.12"
+    "node" : "0.10.21",
+    "npm": "1.3.11"
   },
   "dependencies": {
     "curling": "0.3.0",

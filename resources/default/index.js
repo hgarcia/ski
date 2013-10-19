@@ -11,7 +11,7 @@ function index(req, res) {
   res.render('index', { title: 'The Bicho - Ski, snowboard and outdoors news and videos' });
 }
 function videos(req, res) {
-  res.render('videos', { title: 'The Bicho - Videos' });
+  res.render('videos', { title: 'The Bicho - Videos', id: "-" });
 }
 function music(req, res) {
   res.render('music', { title: 'The Bicho - Music for your outdoor time' });

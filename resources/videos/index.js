@@ -1,7 +1,7 @@
 var categs = require('../../models/categories');
 
 module.exports = function (app) {
-  app.get("/videos", htmlView);
+  // app.get("/videos", htmlView);
   app.get("/videos/:id/:provider/:title", htmlView);
   app.get("/videos.json", rotation);
   app.get("/admin/videos", app.security.authorize(), list);
