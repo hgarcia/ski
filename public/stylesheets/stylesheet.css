@@ -1,4 +1,4 @@
-nav ul, .main-header-admin ul {
+.main-header-admin ul {
     list-style:none;
 }
 @font-face {
@@ -35,7 +35,8 @@ nav ul, .main-header-admin ul {
     display: none;
 }
 .main-header {
-    height: 11em;
+    height: 155px;
+    margin-bottom: 395px !important;
 }
 .main-header-admin {
     height: 5em;
@@ -47,18 +48,6 @@ nav ul, .main-header-admin ul {
 .main-header-admin h1 {
     font-size: 2em;
     font-family: 'Bk2AM';
-}
-.main-menu {
-    margin-top: 3em;
-    float: right;
-    width: 40%;
-}
-.main-header-admin .main-menu {
-    margin-top: 1em;
-    width: 45%;
-}
-.main-menu ul {
-    float: right;
 }
 .menu-items {
     color: #DEDEDE;
@@ -98,9 +87,6 @@ nav ul, .main-header-admin ul {
     color: #080808;
     text-shadow: 0 0 10px #dedede;
 }
-.main-menu ul li:hover {
-    background-color: #404040;
-}
 .main-body {
     background-color: #fefefe;
     height: 750px;
@@ -131,18 +117,22 @@ nav ul, .main-header-admin ul {
     padding-bottom: 1px;
     padding-top: 1px;
 }
-.dark-bar {
+#dark-bar {
     background-color: #000;
     text-align: center;
-    height: 28em;
+    height: 395px;
+    width: 100%;
+    position: absolute;
+    top: 155px;
+    z-index: 2;
 }
 #player {
     display: inline-block;
     width: 50%;
 }
 .media-list {
-    margin-top: 3em !important;
-    margin: 0 auto;
+    margin-top: /*28em*/;
+    margin: 20px auto;
     width: 88%;
 }
 .media-list img {
@@ -263,14 +253,13 @@ nav ul, .main-header-admin ul {
 /** iPad **/
 @media only screen and (max-width: 1024px) {
     .main-header {
-        height: 9em;
+        height: 120px;
+    }
+    #dark-bar {
+        top: 117px;
     }
     .main-header h1 {
         font-size: 340%;
-    }
-    .main-menu {
-        margin-top: 3%;
-        width: 24em;
     }
     .menu-items {
         width: 5em;

@@ -1,11 +1,11 @@
 extends layout
 
 block content
-  div.dark-bar
+  div#dark-bar
     div#player
-  div#streamer.media-list.eleven.columns.centered
+  div#streamer.media-list.eleven.columns
     ul#videos-list
   span#selectedVideoId.hidden=id
-  script(src="../javascripts/path.min.js")
-  script(src="../javascripts/jquery.js")
-  script(src="../javascripts/videos.js")
+  script(src="/javascripts/path.min.js")
+  script(src="/javascripts/jquery.js")
+  script(src="/javascripts/videos.js")

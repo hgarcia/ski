@@ -1,13 +1,41 @@
 $(document).ready(function () {
 
-  function notFound(){
+  function notFound() {
     console.log("404 Not Found");
   }
+
+  (function () {
+    // Stick the #nav to the top of the window
+    var nav = $('#dark-bar');
+    var navHomeY = nav.offset().top;
+    var isFixed = false;
+    var $w = $(window);
+    $w.scroll(function() {
+        var scrollTop = $w.scrollTop();
+        var shouldBeFixed = scrollTop > navHomeY;
+        if (shouldBeFixed && !isFixed) {
+            nav.css({
+                position: 'fixed',
+                top: 0
+            });
+            isFixed = true;
+        }
+        else if (!shouldBeFixed && isFixed)
+        {
+            nav.css({
+                position: 'absolute',
+                top: navHomeY
+            });
+            isFixed = false;
+        }
+    });
+  })();
 
   Path.map("/videos/:videoKey/:provider/:title").to(function () {
     var h = getVideoHtml(this.params["videoKey"], this.params["provider"]);
     $('#player').html(h);
   });
+
   Path.root("/videos");
   Path.rescue(notFound);
   Path.history.listen(true);
