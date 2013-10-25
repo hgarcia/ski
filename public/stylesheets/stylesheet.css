@@ -131,8 +131,7 @@
     width: 50%;
 }
 .media-list {
-    margin-top: /*28em*/;
-    margin: 20px auto;
+    margin: 0 auto;
     width: 88%;
 }
 .media-list img {
@@ -141,7 +140,7 @@
 }
 .media-list ul li {
     display: inline-block;
-    padding-right: 1.2em;
+    padding: 0.6em;
 }
 .media-list ul li a {
     color: #202020;
