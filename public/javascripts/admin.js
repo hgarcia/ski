@@ -1,10 +1,6 @@
 $(document).ready(function () {
   $.foundation.customForms.appendCustomMarkup();
 
-  $('#cancelArticleEdit').click(function () {
-    document.location = "/admin/articles";
-  });
-
   $('#cancelVideoEdit').click(function () {
     document.location = "/admin/videos";
   });
