@@ -1,11 +1,16 @@
 $(document).ready(function () {
 
   function notFound() {
-    console.log("404 Not Found");
+    if (console && console.log) {
+      console.log("404 Not Found");
+    }
+  }
+
+  function isPlayerVisible() {
+    return $('#dark-bar:visible').length > 0;
   }
 
   (function () {
-    // Stick the #nav to the top of the window
     var nav = $('#dark-bar');
     var navHomeY = nav.offset().top;
     var isFixed = false;
@@ -32,8 +37,12 @@ $(document).ready(function () {
   })();
 
   Path.map("/videos/:videoKey/:provider/:title").to(function () {
-    var h = getVideoHtml(this.params["videoKey"], this.params["provider"]);
-    $('#player').html(h);
+    var urlOrHtml = getVideoHtml(this.params["videoKey"], this.params["provider"]);
+    if (isPlayerVisible()) {
+      $('#player').html(urlOrHtml);
+    } else {
+      window.open(urlOrHtml, 'play-video');
+    }
   });
 
   Path.root("/videos");
@@ -41,12 +50,23 @@ $(document).ready(function () {
   Path.history.listen(true);
 
   function getVideoHtml(videoKey, provider) {
+    var urlOrHtml;
+    var getHtml = isPlayerVisible();
     if (provider === "youtube") {
-      return '<iframe width="90%" height="392" src="http://www.youtube.com/embed/' + videoKey + '?feature=oembed" frameborder="0" allowfullscreen></iframe>';
+      if (getHtml) {
+        urlOrHtml = '<iframe width="90%" height="392" src="http://www.youtube.com/embed/' + videoKey + '?feature=oembed" frameborder="0" allowfullscreen></iframe>';
+      } else {
+        urlOrHtml = "http://www.youtube.com/watch?v=" + videoKey;
+      }
     }
     if (provider === "vimeo") {
-      return '<iframe src="http://player.vimeo.com/video/' + videoKey + '?title=0&amp;byline=0&amp;portrait=0&amp;color=3B65AF" width="100%" height="392" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+      if (getHtml) {
+        urlOrHtml = '<iframe src="http://player.vimeo.com/video/' + videoKey + '?title=0&amp;byline=0&amp;portrait=0&amp;color=3B65AF" width="100%" height="392" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+      } else {
+        urlOrHtml = "http://vimeo.com/" + videoKey;
+      }
     }
+    return urlOrHtml;
   }
 
   function clickHandler(event) {
@@ -54,7 +74,6 @@ $(document).ready(function () {
     var ele = $(this);
     var title = ele.attr('title') + " - thebicho.com";
     $('head title').html(title);
-    console.log(ele.attr('title'));
     Path.history.pushState({}, title, ele.attr("href"));
   }
 

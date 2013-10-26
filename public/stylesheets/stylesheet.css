@@ -264,3 +264,24 @@
         width: 5em;
     }
 }
+
+/** iPhone **/
+@media only screen and (max-width: 639px) {
+    .no-phone {
+        display: none;
+    }
+    .main-header {
+        height: 28px;
+        margin-bottom: 1px !important;
+    }
+    .main-header a {
+        padding: 0;
+    }
+    .main-header h1 {
+        font-size: 160%;
+        margin-top: 0;
+    }
+    .media-list {
+        width: 98%;
+    }
+}
