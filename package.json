@@ -10,7 +10,7 @@
     "npm": "1.3.11"
   },
   "dependencies": {
-    "curling": "0.3.0",
+    "curling": "latest",
     "express": "3.1.0",
     "jade": "0.28.1",
     "stylus": "0.32.0",

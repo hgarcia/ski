@@ -4,7 +4,8 @@ exports.CONFIG = {
       options: {
           database: 'skis',
           username: '',
-          password: ''
+          password: '',
+          w: 1
       },
       uris: [
           '127.0.0.1:27017'

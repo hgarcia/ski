@@ -14,12 +14,13 @@ exports.init = function (db) {
       if (videoUrl.host.indexOf('vimeo') !== -1) {
         oEmbeddUrl = "http://vimeo.com/api/oembed.json?url=" + video_url;
       } else {
-        if (videoUrl.host.indexOf("youtu.be/") === -1) {
-          video_url = "http://youtu.be" + videoUrl.path;
+        if (videoUrl.host.indexOf("youtu.be/") !== -1) {
+          video_url = "http://youtube.com" + videoUrl.path;
         }
         oEmbeddUrl = "http://www.youtube.com/oembed?url=" + video_url;
       }
       try {
+        console.log(oEmbeddUrl);
         connection.get(oEmbeddUrl, {}, function (err, result) {
           if (result.payload) {
             var dto = JSON.parse(result.payload);

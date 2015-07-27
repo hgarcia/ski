@@ -108,7 +108,7 @@ $(document).ready(function () {
       a.appendChild(span)
       li.appendChild(a);
       ctr.appendChild(li);
-      if (selected === '') {
+      if (!selected || selected === '') {
         if (i === 0) {
           a.click();
         }
@@ -118,6 +118,7 @@ $(document).ready(function () {
         }
       }
     }
+    // console.log("S", selected, i, a);
   }
 
   function getVideos() {
