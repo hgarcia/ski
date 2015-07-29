@@ -89,9 +89,8 @@
 }
 .main-body {
     background-color: #fefefe;
-    height: 750px;
+    min-height: 750px;
     box-shadow: 0 0 25px;
-    display: inline-table;
     padding-bottom: 15px;
     margin-bottom: 100px;
 }
